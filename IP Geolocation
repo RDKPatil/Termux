@@ -1,0 +1,8 @@
+# Uses curl for getting location object from telize.com
+# Next it uses jq (http://stedolan.github.io/jq/) json parser to extract city and country name
+
+# get current location name based on request IP
+curl -s http://www.telize.com/geoip | jq '.city +", "+ .country'
+
+# get location name based on parameter value from request
+curl -s http://www.telize.com/geoip/8.8.8.8 | jq '.city +", "+ .country'
